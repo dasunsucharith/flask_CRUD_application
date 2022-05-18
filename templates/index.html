@@ -5,6 +5,44 @@
 
 {% block body %} 
 
-    <h1> From Template Inheritance </h1>
+    <div class="container">
+        <dic class="row">
+            <div class="col md-12">
+                <div class="jumbotron p-3">
+                    <h2>
+                        Manage <b>Employees </b> 
+                        <button 
+                            type="button" 
+                            class="btn btn-success float-right"
+                            data-toggle="modal"
+                            data-target="#mymodal"
+                            >
+                            Add New Employees
+                        </button>
+                    </h2>
+
+                    <table class="table table-hover table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr>
+                            <td>01</td>
+                            <td>Dasun</td>
+                            <td>Sucharith.dasun@gmail.com</td>
+                            <td>+94 71 361 3974</td>
+                            <td>
+                                <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </dic>
+    </div>
 
 {% endblock %}
