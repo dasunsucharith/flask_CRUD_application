@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -21,8 +21,23 @@ class Data(db.Model):
         self.phone = phone
 
 @app.route('/')
-def index():
+def Index():
     return render_template("index.html")
+
+@app.route('/insert', methods = ['POST'])
+def Insert():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+
+        my_data = Data(name, email, phone)
+        db.session.add(my_data)
+        db.session.commit()
+
+        flash('Employee Inserted Successfully')
+
+        return redirect(url_for('Index'))
 
 if __name__ == "__main__":
     app.run(debug=True)
